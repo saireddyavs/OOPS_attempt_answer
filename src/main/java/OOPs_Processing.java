@@ -21,7 +21,6 @@ public class OOPs_Processing extends PApplet {
     @Override
     public void settings() {
         super.settings();
-
         size(WIDTH, HEIGHT);
     }
 
@@ -88,3 +87,7 @@ public class OOPs_Processing extends PApplet {
 
 
 }
+
+
+
+
