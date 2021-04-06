@@ -11,6 +11,8 @@ public class OOPs_Processing extends PApplet {
 
     float X_positions[] = new float[4];
 
+    float y_positions[]=new float[4];
+
 
     public static void main(String[] args) {
         PApplet.main("OOPs_Processing", args);
@@ -30,6 +32,8 @@ public class OOPs_Processing extends PApplet {
         ellipse(WIDTH, HEIGHT, Diameter, Diameter);
 
         for (int i = 0; i < 4; ++i) X_positions[i] = 0;
+
+        for(int i=0;i<4;++i)y_positions[i]=(HEIGHT*(i+1))/5;
 
     }
 
@@ -68,18 +72,16 @@ public class OOPs_Processing extends PApplet {
 
     private void drawEllipse(int ellipse_number) {
 
-        ellipse(X_positions[ellipse_number-1], getEllipse_Y_position(ellipse_number), Diameter, Diameter);
+        ellipse(X_positions[ellipse_number-1], y_positions[ellipse_number-1], Diameter, Diameter);
 
-        update_X_postions(ellipse_number);
+        update_X_positons(ellipse_number);
 
 
     }
 
-    private int getEllipse_Y_position(int ellipse_number) {
-        return (HEIGHT * ellipse_number) / 5;
-    }
 
-    private void update_X_postions(int ellipse_number){
+
+    private void update_X_positons(int ellipse_number){
         X_positions[ellipse_number-1]+=ellipse_number;
 
     }
