@@ -1,6 +1,6 @@
 import processing.core.PApplet;
 
-class Sketcher extends PApplet {
+public class Sketcher extends PApplet {
 
     public static final int WIDTH = 600;
     public static final int HEIGHT = 400;
@@ -51,21 +51,45 @@ class Sketcher extends PApplet {
 class ball {
 
 
-    public float height, width, diameter;
-    int speed;
-    Sketcher pAppletSketcher;
+    private float height, width, diameter;
+    private  int speed;
+    private  Sketcher pAppletSketcher;
 
     public ball(float height, float width, float diameter, int speed, Sketcher pAppletSketcher) {
         this.diameter = diameter;
         this.width = width;
-        this.height = (height*speed)/5;
+        this.height = getHeight(height, speed);
         this.speed = speed;
         this.pAppletSketcher = pAppletSketcher;
 
     }
 
+    private float getHeight(float height, int speed) {
+        return (height * speed) / 5;
+    }
+
     public void setWidth() {
         this.width = width + this.speed;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getDiameter() {
+        return diameter;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Sketcher getpAppletSketcher() {
+        return pAppletSketcher;
     }
 }
 
@@ -75,6 +99,6 @@ class Drawing_tools {
 
     public void drawEllipse(ball ball) {
 //        System.out.println(ball.height+" "+ball.width+ " "+ball.speed);
-        ball.pAppletSketcher.ellipse(ball.width, ball.height, ball.diameter, ball.diameter);
+        ball.getpAppletSketcher().ellipse(ball.getWidth(), ball.getHeight(), ball.getDiameter(), ball.getDiameter());
     }
 }
